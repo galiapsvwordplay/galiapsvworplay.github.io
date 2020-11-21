@@ -1,3 +1,3 @@
-# galiapsvwordplay.github.io
+# galiapsvworplay.github.io
 
-https://galiapsvwordplay.github.io
+https://galiapsvworplay.github.io
