@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saludo</title>
-    <link href="css/estilos.css" rel="stylesheet">
-    <script type="module" src="cmp/mi-footer.js"></script>
+    <meta charset="utf-8">
+    <title>Ud.2 - Relacion de ejercicios 5</title>
+    <link rel="stylesheet" href="estilo-ahoracado.css">
   </head>
   <body>
-    <form id="formSaludo">
-      <h1>Saludo</h1>
-      <p>
-        <label>
-          Nombre
-          <input type="text" name="nombre">
-        </label>
-      </p>
-      <p><button>Calcular</button></p>
-      <p><output name="salida"></output></p>
-    </form>
-    <mi-footer></mi-footer>
-    <script type="module">
-      import { CtrlSaludo } from "/js/CtrlSaludo.js";
-      const ctrlSaludo = new CtrlSaludo();
-      formSaludo.addEventListener("submit", evt => {
-        try {
-          evt.preventDefault();
-          const datos = new FormData(formSaludo);
-          const nombre = datos.get("nombre");
-          const saludo = ctrlSaludo.calculaSaludo(nombre);
-          formSaludo.salida.value = saludo;
-        } catch (error) {
-          console.log(error);
-          formSaludo.salida.value = error.message;
-        }
-      });
-    </script>
+      <div class="main-container">
+
+        <h1 class="titulo">Juego del ahorcado</h1>
+        <h1 id="msg-final"></h1>
+        <h3 id="acierto"></h3>
+        <div class="flex-row no-wrap">
+          <h2 class="palabra" id="palabra"></h2>
+          <picture>
+            <img src="img/ahorcado_6.png" alt="" id="image6">
+            <img src="img/ahorcado_5.png" alt="" id="image5">
+            <img src="img/ahorcado_4.png" alt="" id="image4">
+            <img src="img/ahorcado_3.png" alt="" id="image3">
+            <img src="img/ahorcado_2.png" alt="" id="image2">
+            <img src="img/ahorcado_1.png" alt="" id="image1">
+            <img src="img/ahorcado_0.png" alt="" id="image0">
+          </picture>
+        </div>
+        <div class="flex-row" id="turnos">
+          <div class="col">
+            <h3>Intentos restantes: <span id="intentos">6</span></h3>
+          </div>
+          <div class="col">
+            <button onclick="inicio()" id="reset">Elegir otra palabra</button>
+            <button onclick="pista()" id="pista">Dame una pista!</button>
+            <span id="hueco-pista"></span>
+          </div>
+          </div>
+        
+        <div class="flex-row">
+          <div class="col">
+            <div class="flex-row" id="abcdario">
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+
+      </div>
+    <script src="ahorcado.js"></script>
   </body>
 </html>
